@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Notification extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'customer_id', 'message_id', 'message_content', 'sent_at'
+    ];
+
+    protected $dates = ['sent_at'];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+}
